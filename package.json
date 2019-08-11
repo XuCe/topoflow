@@ -1,5 +1,5 @@
 {
-  "name": "topotest",
+  "name": "topoflow",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "lodash": "^4.17.15",
+    "mxgraph": "^3.9.12",
     "vue": "^2.6.10"
   },
   "devDependencies": {
