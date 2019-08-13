@@ -7,6 +7,7 @@
 <script>
 import mxgraph from '@/graph/index'
 import { genGraph } from '@/graph/Graph'
+import flow from './flow'
 const {
   mxGraph,
   mxOutline,
@@ -39,6 +40,9 @@ export default {
       this.graph.cellsEditable = false
       this.graph.setConnectable(false)
       this.parent = this.graph.getDefaultParent()
+      var style = this.graph.getStylesheet().getDefaultEdgeStyle();
+			style[mxConstants.STYLE_ROUNDED] = true;
+			this.graph.alternateEdgeStyle = 'elbow=vertical';
       // 启动橡皮框拖选
       new mxRubberband(this.graph)
     },
@@ -47,15 +51,15 @@ export default {
       if(!state) return
       let node = state.shape.node
 			//state.shape.node.getElementsByTagName('path')[0].removeAttribute('visibility');
-			node.getElementsByTagName('path')[1].setAttribute('id', 'link')
-
+			// node.getElementsByTagName('path')[1].setAttribute('id', 'link')
+      new flow('aa',node,'#2598FC',node.getElementsByTagName('path')[1].getAttribute('d'))
     },
   },
   mounted(){
     this.initTopo()
-    let v1 = this.graph.insertVertex(this.parent, null, 'Hello,', 20, 20, 80, 30)
-		let v2 = this.graph.insertVertex(this.parent, null, 'World!', 200, 150, 80, 30)
-		let link = this.graph.insertEdge(this.parent, null, '', v1, v2,`endArrow=none;startArrow=none;strokeWidth=2;endSize=3;strokeColor=#000;rounded=1;`)
+    let v1 = this.graph.insertVertex(this.parent, null, 'Hello,', 20, 40, 80, 70)
+		let v2 = this.graph.insertVertex(this.parent, null, 'World!', 600, 740, 80, 40)
+		let link = this.graph.insertEdge(this.parent, null, '', v1, v2,`endArrow=none;startArrow=none;strokeWidth=1;endSize=3;strokeColor=#000;rounded=1;`)
     this.setLinkAnimation(link)
   }
 }
