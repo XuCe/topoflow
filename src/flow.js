@@ -20,14 +20,10 @@ export default class flow {
 
   run(){
     var self = this
-    var count = 0
-    if (count % 100 === 0) {
-      this.launch(this.id,this.color,this.path)
-    }
-    count++
+    this.launch(this.id,this.color,this.path)
     setTimeout(function() {
-      self.run()
-    }, 2 * 1000);
+        self.run()
+    }, 2 * 1000)
   }
 
   LightenDarkenColor(col, amt){
@@ -76,6 +72,8 @@ export default class flow {
       }
     }
 
+    pathContainer[0][0] = (pathContainer[0][0]+pathContainer[1][0])/2
+    pathContainer[0][1] = (pathContainer[0][1]+pathContainer[1][1])/2
     pathContainer[0][0] = (pathContainer[0][0]+pathContainer[1][0])/2
     pathContainer[0][1] = (pathContainer[0][1]+pathContainer[1][1])/2
     linear

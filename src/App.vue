@@ -58,9 +58,18 @@ export default {
   mounted(){
     this.initTopo()
     let v1 = this.graph.insertVertex(this.parent, null, 'Hello,', 20, 40, 80, 70)
-		let v2 = this.graph.insertVertex(this.parent, null, 'World!', 600, 740, 80, 40)
-		let link = this.graph.insertEdge(this.parent, null, '', v1, v2,`endArrow=none;startArrow=none;strokeWidth=1;endSize=3;strokeColor=#000;rounded=1;`)
+		let v2 = this.graph.insertVertex(this.parent, null, 'World!', 200, 200, 80, 40)
+		let link = this.graph.insertEdge(this.parent, null, '', v1, v2,`endArrow=none;startArrow=none;strokeWidth=1;endSize=3;strokeColor=#2598FC;rounded=1;`)
     this.setLinkAnimation(link)
+    let v3 = this.graph.insertVertex(this.parent, null, 'Hello,', 330, 330, 80, 70)
+    let link1 = this.graph.insertEdge(this.parent, null, '', v3, v2,`endArrow=none;startArrow=none;strokeWidth=1;endSize=3;strokeColor=#2598FC;rounded=1;`)
+    this.setLinkAnimation(link1)
+    let v4 = this.graph.insertVertex(this.parent, null, 'Hello,', 330, 40, 80, 70)
+    let link2 = this.graph.insertEdge(this.parent, null, '', v4, v2,`endArrow=none;startArrow=none;strokeWidth=1;endSize=3;strokeColor=#2598FC;rounded=1;`)
+    this.setLinkAnimation(link2)
+    let v5 = this.graph.insertVertex(this.parent, null, 'Hello,', 20, 330, 80, 70)
+    let link3 = this.graph.insertEdge(this.parent, null, '', v5, v2,`endArrow=none;startArrow=none;strokeWidth=1;endSize=3;strokeColor=#2598FC;rounded=1;`)
+    this.setLinkAnimation(link3)
   }
 }
 </script>
