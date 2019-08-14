@@ -3,12 +3,10 @@ export default class flow {
   constructor(id,dom,color,path){
     var container = d3.select(dom)
     this.effectGroup = container.append("g")
-    this.t = null
-    this.t2 = null
     this.path = this.trimPath(path)
     this.color = color
     this.id = id
-    // console.log(this.path)
+    this.timeid = 0
     this.run()
   }
 
@@ -21,9 +19,14 @@ export default class flow {
   run(){
     var self = this
     this.launch(this.id,this.color,this.path)
-    setTimeout(function() {
+    this.timeid = setTimeout(function() {
         self.run()
     }, 2 * 1000)
+  }
+
+  destroy(){
+    clearTimeout(this.timeid)
+    this.effectGroup.remove()
   }
 
   LightenDarkenColor(col, amt){
